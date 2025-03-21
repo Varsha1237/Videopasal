@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name='viewport' content='width=1920, user-scalable=no'>
+    <meta http-equiv='cache-control' content='no-cache'>
+    <meta http-equiv='expires' content='0'>
+    <meta http-equiv='pragma' content='no-cache'>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/video-player.css">
+
+    <!-- All used js library -->
+    <script src="lib/navigation/jquery.min.js"></script>
+    <script src="lib/navigation/lodash.min.js"></script>
+    <script src="lib/navigation/spatial_navigation.js"></script>
+    <script src="lib/common/date.js"></script>
+    <script src="lib/common/moment.js"></script>
+
+</head>
+
+<body>
+    <div class="main_container" id="main_container">
+        <!-- Start of left sidebar container -->
+        <div class="navbar_sidebar pushmenu-left menu_container">
+            <div class="menu_tabs nav_items" id="menu_tab">
+                <div class="menu_logo">
+                    <img src="images/favicon-3.png" class="menu_logo_img menu_img_small" id="menuLogo"
+                        alt="">
+                </div>
+                <ul class="tab_list" id="menuList">
+                    <li class="focusable selected-menu" id="menu0" tabindex="0" data-sn-up="null" data-sn-right="#row_0"
+                        data-sn-left="null" data-sn-down="#menu1">
+                        <div class="menu_icons">
+                            <img src="images/home.png" alt="home">
+                        </div>
+                        <span class="tab_heading">Home</span>
+                    </li>
+                    <li class="focusable" id="menu1" tabindex="0" data-sn-up="#menu0" data-sn-right="null"
+                        data-sn-left="null" data-sn-down="#menu2">
+                        <div class="menu_icons">
+                            <img src="images/search.png" alt="search">
+                        </div>
+                        <span class="tab_heading">Search</span>
+                    </li>
+                    <li class="focusable" id="menu2" tabindex="0" data-sn-up="#menu1" data-sn-right="null"
+                        data-sn-left="null" data-sn-down="null">
+                        <div class="menu_icons">
+                            <img src="images/account.png" alt="account">
+                        </div>
+                        <span class="tab_heading">My Account</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="navbar_line"><img src="images/side_bar.png" alt=""></div>
+        </div>
+        <!-- End of left sidebar container -->
+
+        <!-- Start of home screen -->
+        <div class="home_container active" id="home_container" style="display: none;">
+            <div class="home_container_inner">
+                <div class="banner_container" id="banner_detail">
+                </div>
+                <div class="listing_container" id="homeList">
+                </div>
+                <!-- End home screen -->
+            </div>
+        </div>
+        <!-- End of home screen -->
+
+        <!-- Start of search screen -->
+        <div class="search_container" id="search_container" style="display: none;">
+            <div class="search_container_inner">
+                <div class="search_box" id="search_box">
+                    <input type="text" class="form-control search_input focusable" data-sn-left="#menu1" data-sn-up="null"
+                        data-sn-right="null" tabindex="14" id="searchInputText" placeholder="Search....">
+                </div>
+                <div class="msg_box search_msg_box" id="msg_box"></div>
+                <div class="search_result_container" id="searchResult">
+                </div>
+            </div>
+        </div>
+        <!-- End search screen -->
+
+        <!-- Start of most watched movie screen -->
+        <div class="most_watched_container" id="most_watched_movie_container" style="display: none;">
+            <div class="most_watched_inner">
+                <div class="banner_container" id="mw_detail_row">
+                </div>
+                <div class="listing_container" id="mostwatchlater">
+                </div>
+            </div>
+        </div>
+        <!-- End most watched movie screen -->
+
+        <!-- Start of favorite_container screen -->
+        <div class="favorite_container" id="favorite_container" style="display: none;">
+            <div class="favorite_inner_box">
+                <div class="banner_container" id="favorite_detail_row">
+                </div>
+                <div class="listing_container" id="favouriteData">
+                </div>
+            </div>
+        </div>
+        <!-- End favorite_container screen -->
+
+        <!-- Start of watch_later screen -->
+        <div class="" id="watch_later_container" style="display: none;">
+            <div class="wl_inner_bwatch_later_containerox">
+                <div class="banner_container" id="watch_later_detail_row">
+                </div>
+                <div class="msg_box" id="watch_later_msg_box"></div>
+                <div class="listing_container" id="WatchLaterData">
+                </div>
+            </div>
+        </div>
+        <!-- End of watch_later screen -->
+
+      
+        <!-- Start of account screen -->
+        <div class="account_container" id="account_container" style="display: none;">
+            <h2 class="account_heading">Account Details</h2>
+            <div class="account_detail_box account_detail_cont account_bx_txt">
+                <div class="lable">Email id</div>
+                <div class="about account_mail" id="account_mail"></div>
+
+                <div id="logout_exit_buttons">
+                    <div class="account_logout focusable" id="account_logout" tabindex="10" data-sn-up="null"
+                        data-sn-right="null" data-sn-left="#menu10" data-sn-down="#account_exit">LOGOFF USER</div>
+                    <div class="account_exit focusable" id="account_exit" tabindex="10" data-sn-up="#account_logout"
+                        data-sn-right="null" data-sn-left="#menu10">EXIT APPLICATION</div>
+            
+                </div>
+            </div>
+        </div>
+        <!-- End of account screen -->
+       
+        <!-- Start of detail screen -->
+        <div class="detail_container" id="detail_container" style="display:none">
+        </div>
+        <!-- End detail screen -->
+
+    </div>
+
+    <!-- Start of video container -->
+    <div class="video-player-container">
+        <div id="videoPlayer">
+            <div class="video-container video_container focusable" id="video_container" tabindex='13'
+                data-sn-right="null" data-sn-left="null" data-sn-up="null">
+                <object id="av-player" type="application/avplayer" class="video_box"
+                    style="width: 1920px;height:1080px;"></object>
+                <div class="language">
+                    <ul>
+                        <li class="init">Audio
+                            <span class="down-arrow">
+                                <!--<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                    										<path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                    									</svg>-->
+                            </span>
+                        </li>
+                        <li data-value="value 1">Auto <span class="down-arrow"></span></li>
+                        <li data-value="value 2">English <span class="down-arrow"></span></li>
+                        <li data-value="value 3">Spanish <span class="down-arrow"></span></li>
+                    </ul>
+                </div>
+                <!-- Start of video pause -->
+                <div class="pause-icon" style="display: none;">
+                    <img src="images/btn_play_off.png" alt="pause icon">
+                </div>
+                <!-- End of video pause -->
+                <!-- Start of video inner -->
+                <div class="video-inner">
+                    <h4 class="video-title"></h4>
+                    <!-- Start of video loader -->
+                    <div class="video-buffered">
+                        <div class="circle_loader buffered_dimension"></div>
+                    </div>
+                    <!-- End of video loader -->
+                </div>
+                <!-- End of video inner -->
+                <!-- Start of progress bar -->
+                <div class="progress-container" style="display: none;">
+                    <span class="progress-time" id="currentTime"></span>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+                            aria-valuemax="100" style="width:0%">
+                            <span class="sr-only"></span>
+                        </div>
+                    </div>
+                    <span class="progress-time" id="totalTime"></span>
+                </div>
+                <!-- End progress bar -->
+
+                <!-- Start of ad's time -->
+                <div class="ad_time_container">
+                    <div class="show_ad_time">
+                        <span class="ad_title"></span>
+                        <span id="ad_time"></span>
+                    </div>
+                </div>
+                <!-- End of ad's time -->
+
+                <div class="subscription_msg" id="subscription_msg" style="display:none;">
+                    <div class="subscription_modal">
+                        <h2 class="subs_headline "> GET A SUBSCRIPTION ON WWW.HAITIANFLIX.COM TO ENJOY THE PREMIUM
+                            CONTENT!
+                        </h2>
+                        <div class="ok_btn" id="msgModal">
+                            <button class="ok_button focusable" tabindex="7" id="msgButton" data-sn-up="null"
+                                data-sn-right="null" data-sn-left="null" data-sn-down="null">OK</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Start Previous / Next Video -->
+                <!-- <div class="video_next_previous_container" tabindex="9" id="videoNextPrevious">
+                    <ul class="video_next_previous_icon_list">
+                        <li class="next_prev_video focusable" id="playPreviousVideo" data-sn-right="#playPauseVideo"
+                            data-sn-left="null" data-sn-down="null"><img src="images/previous_video.png"></li>
+                        <li class="video_next_previous_play_pause_center focusable" id="playPauseVideo"
+                            data-sn-right="#playNextVideo" data-sn-left="#playPreviousVideo" data-sn-down="null">
+                            <img src="images/play.png" id="videoNextPreviousPlayPauseIcon">
+                        </li>
+                        <li class="next_prev_video focusable" id="playNextVideo" data-sn-right="null"
+                            data-sn-left="#playPauseVideo" data-sn-down="null"><img src="images/next_video.png">
+                        </li>
+                    </ul>
+                </div> -->
+                <!-- End Previous / Next Video -->
+            </div>
+        </div>
+    </div>
+    <!-- End of video container -->
+
+    <!-- Start of popup screen -->
+    <span id="modal_container" class="modal_container">
+        <!-- Html file will come here -->
+    </span>
+    <!-- End popup screen -->
+
+    <!-- Start of Exit Modal -->
+<div class="exit_modal_container">
+    <h2 class="popup_headline_text ">"You don't have active subscription Please visit https://videopasal.com?",
+        "Something went wrong. Please contact with admin."</h2>
+    <!-- <div class="popup_btn" id="exitModal">
+        <button tabindex="8" id="noButton" data-sn-up="null" data-sn-down="null" data-sn-left="null"
+            data-sn-right="#yesButton" class="no_button mod_button_sel focusable pointer_enable">Ok</button>
+    </div> -->
+</div>
+
+    <div class="loader" id="loader">
+        <div class="circle_loader"></div>
+    </div>
+
+    <script src="js/config.js" type="text/javascript"></script>
+    <script src="js/home.js" type="text/javascript"></script>
+    <script src="js/main.js" type="text/javascript"></script>
+    <script src="js/modal.js" type="text/javascript"></script>
+    <script src="js/utility.js" type="text/javascript"></script>
+    <script src="js/api-v1.js" type="text/javascript"></script>
+    <script src="js/navigation.js" type="text/javascript"></script>
+    <script src="js/video-player.js" type="text/javascript"></script>
+    <script src="js/navigation-common-function.js" type="text/javascript"></script>
+    <script src="$WEBAPIS/webapis/webapis.js " type="text/javascript "></script>
+</body>
+
+</html>

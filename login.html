@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name='viewport' content='width=1920, user-scalable=no'>
+    <meta http-equiv='cache-control' content='no-cache'>
+    <meta http-equiv='expires' content='0'>
+    <meta http-equiv='pragma' content='no-cache'>
+    <link rel="stylesheet" type="text/css" href="css/login-signup.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/modal.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="lib/navigation/jquery.min.js"></script>
+    <script src="lib/navigation/lodash.min.js"></script>
+    <script src="lib/navigation/spatial_navigation.js"></script>
+    <script src="lib/common/date.js"></script>
+    <script src="lib/common/moment.js"></script>
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="login_container active" id="login_container">
+            <div class="log_in_inner_container">
+                <div class="logo_box"><img class="logo" src="images/logo.png" alt=""></div>
+                <!-- <div class="logo_box"><img class="logo" src="images/favicon-3.png" alt="">VideoPasal</div> -->
+                <!-- <div class="log_in_heading">Login</div> -->
+                <div class="form_box">
+                    <input type="text" class="form_inputbox focusable" id="email" tabindex='0' data-sn-up="null"
+                        data-sn-down="#password" data-sn-right="null" data-sn-left="null"
+                        placeholder="Enter your email">
+                    <input type="password" class="form_inputbox focusable" id="password" tabindex='0'
+                        data-sn-up="#email" data-sn-down="#signinButton" data-sn-left="null" data-sn-right="null"
+                        placeholder="Enter your password">
+                    <div class="login_btn_box">
+                        <div class="sign_in_btn login-button focusable" id="signinButton" tabindex='0'
+                            data-sn-up="#password" data-sn-down="#register_now" data-sn-left="null"
+                            data-sn-right="null">
+                            LOGIN
+                        </div>
+                        <!-- <div class="forgot-container">
+                        <label class="forgot-password focusable" id="forgot_password" tabindex='0'
+                        data-sn-up="#signinButton" data-sn-down="#register_now" data-sn-left="null"
+                        data-sn-right="null" >Forgot password?</label>
+                        </div>
+                           <div class="or-main-container">
+                             <span class="or-container">Or</span>
+                            </div> -->
+                        <div class="sign_in_btn login-button focusable" id="register_now" tabindex='0'
+                            data-sn-up="#signinButton" data-sn-down="null" data-sn-left="null"
+                            data-sn-right="null">
+                            Signup
+                        </div>
+                      <!-- <div class="Register-this">
+                        <label class="Registerthis">Don't have account? <span class="register-now focusable" id="register_now" tabindex='0'
+                            data-sn-up="#loginGoogle" data-sn-down="#signinWithCode" data-sn-left="null"
+                            data-sn-right="null">Register Now</span></label>
+                    </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="signup_container " id="signup_container" style="display:none;">
+            <div class="log_in_inner_container">
+                <div class="logo_box"><img class="logo" src="images/logo.png" alt=""></div>
+                <!-- <div class="logo_box"><img class="logo" src="images/favicon-3.png" alt="">VideoPasal</div> -->
+                <!-- <div class="log_in_heading">Login</div> -->
+                <div class="form_box">
+                    <input type="text" class="form_inputbox focusable" id="name" tabindex='0' data-sn-up="null"
+                        data-sn-down="#email" data-sn-right="null" data-sn-left="null"
+                        placeholder="Enter your name">
+                    <input type="text" class="form_inputbox focusable" id="email_id" tabindex='0' data-sn-up="#name"
+                        data-sn-down="#password" data-sn-right="null" data-sn-left="null"
+                        placeholder="Enter your email">
+                    <input type="password" class="form_inputbox focusable" id="password_pss" tabindex='0'
+                        data-sn-up="#email" data-sn-down="#confirmPassword" data-sn-left="null" data-sn-right="null"
+                        placeholder="Enter your password">
+                    <input type="password" class="form_inputbox focusable" id="confirmPassword" tabindex='0'
+                        data-sn-up="#registerButton" data-sn-down="#registerButton" data-sn-left="null" data-sn-right="null"
+                        placeholder="Enter your confirm password">
+                       <div class="login_btn_box">
+                        <div class="sign_in_btn login-button focusable" id="registerButton" tabindex='0'
+                            data-sn-up="#confirmPassword" data-sn-down="#back_Button" data-sn-left="null"
+                            data-sn-right="null">
+                            Signup
+                        </div>
+
+                        <div class="sign_in_btn signup-button  focusable" id="back_Button" tabindex='0'
+                        data-sn-up="#registerButton" data-sn-down="null" data-sn-left="null"
+                        data-sn-right="null">
+                        Login
+                    </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="error-box" id="login_error" style="display: none">
+            <span class="error-message" id="error_message"></span>
+          </div>
+          
+        <div class="login_loader" id="login_loader">
+            <div class="login_circle_loader"></div>
+        </div>
+    </div>
+    <script src="js/add-numbers-key.js" type="text/javascript"></script>
+    <script src="js/config.js " type="text/javascript "></script>
+    <script src="js/login.js" type="text/javascript"></script>
+    <script src="js/utility.js" type="text/javascript"></script>
+    <script src="$WEBAPIS/webapis/webapis.js " type="text/javascript "></script>
+</body>
+
+</html>

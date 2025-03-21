@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:tizen="http://tizen.org/ns/widgets" id="https://www.videopasal.tv/" version="1.0.0" viewmodes="maximized">
+    <access origin="*" subdomains="true"></access>
+    <tizen:application id="SE5iLWtrce.videopasal" package="SE5iLWtrce" required_version="2.3"/>
+    <content src="splash-screen.html"/>
+    <feature name="http://tizen.org/feature/screen.size.normal.1080.1920"/>
+    <feature name="http://samsungapps.com/api/webapis" required="false"/>
+    <tizen:metadata key="http://samsung.com/tv/metadata/prelaunch.support" value="false"/>
+    <tizen:metadata key="http://samsung.com/tv/metadata/multitasking.support" value="true"/>
+    <tizen:metadata key="http://samsung.com/tv/metadata/use.voiceguide" value="false"/>
+    <name>Video Pasal</name>
+    <tizen:privilege name="http://tizen.org/privilege/tv.inputdevice"/>
+    <tizen:privilege name="http://tizen.org/privilege/application.launch"/>
+    <tizen:privilege name="http://tizen.org/privilege/internet"/>
+    <tizen:privilege name="http://tizen.org/privilege/tv.display"/>
+    <tizen:privilege name="http://developer.samsung.com/privilege/network.public"/>
+    <tizen:privilege name="http://tizen.org/privilege/filesystem.read"/>
+    <tizen:privilege name="http://developer.samsung.com/privilege/productinfo"/>
+    <tizen:profile name="tv-samsung"/>
+    <tizen:setting screen-orientation="landscape" context-menu="disable" background-support="disable" encryption="disable" install-location="auto" hwkey-event="disable"/>
+</widget>
